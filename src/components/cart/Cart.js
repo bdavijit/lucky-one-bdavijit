@@ -48,12 +48,12 @@ const Cart = (props) => {
           {props.setCount(quantity)}
           <div>
             <hr></hr>
-            <h4>Order Summary</h4>
-            <p>Selected Items: {quantity}</p>
-            <p>Total price: ${total}</p>
-            <p>Total Shipping: ${shipping}</p>
-            <p>Tax: {tax}</p>
-            <h5>Grand Total: {grandTotal.toFixed(2)}</h5>
+            <h4 className="text-primary">Order Summary</h4>
+            <p>Selected Items: <span className="text-primary">{quantity}</span></p>
+            <p>Total price:  <span className="text-primary">${total}</span></p>
+            <p>Total Shipping: <span className="text-primary">${shipping}</span></p>
+            <p>Tax: <span className="text-primary">${tax}</span></p>
+            <h5>Grand Total: <span className="text-primary">${grandTotal.toFixed(2)}</span></h5>
           </div>
         </section>
       </section>

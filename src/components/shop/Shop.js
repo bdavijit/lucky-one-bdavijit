@@ -29,14 +29,15 @@ const Shop = (props) => {
                 </div>
                 <div className="card-body">
                   <h5 className="card-title text-center">{product.name}</h5>
-                  <p className="card-text text-center fw-bold text-danger">
+                  <p className="card-text text-center fw-bold text-primary">
                     {product.price}
                   </p>
 
                   <div className="d-grid gap-2">
                     <button 
-                    className="btn btn-primary"
+                    className="btn text-white"
                      type="button"
+                     style={{ background: "#120E43" }}
                      onClick={() => props.AddtoCart(product)}
                       >
                        Add to cart
