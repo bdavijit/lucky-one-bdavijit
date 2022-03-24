@@ -23,6 +23,11 @@ function App() {
     });
   }, []);
 
+  const DeleteCart = ( { id } ) =>{
+    const rest = cartProducts.filter(product => product.id !== id);
+    setcartProducts(rest);
+  }
+
   const AddtoCart = (AddProduct) => {
     let newCart = [];
     const exists = cartProducts.find(product => product.id === AddProduct.id);
@@ -58,7 +63,13 @@ function App() {
       />
       {/* Just For perfect Scrolling (href="#CardBox")*/}
       <div id="CardBox"></div>
-      <Cart count={count} setCount={setCount} cartProducts={cartProducts} />
+      <Cart 
+      count={count} 
+      setCount={setCount}
+      cartProducts={cartProducts}
+      DeleteCart={DeleteCart}
+        
+      />
     </div>
   );
 }

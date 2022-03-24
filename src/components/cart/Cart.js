@@ -28,14 +28,14 @@ const Cart = (props) => {
                   />
                 </div>
                 <div className="card-body">
-                  <h3 className="card-title text-center">{element.name}</h3>
+                  <h3 className="card-title text-center text-adjust">{element.name}</h3>
                   <p className="card-text text-center">price:{element.price}</p>
                 </div>
                 <div>Quintity:{element.quantity}</div>
                 <button
                   type="button"
                   className="btn btn-danger"
-                  //    onClick="DeleteCartData('${Item.slug}')"
+                  onClick={() => props.DeleteCart(element)}
                 >
                   Delete
                 </button>
