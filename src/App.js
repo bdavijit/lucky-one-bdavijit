@@ -7,7 +7,6 @@ import Cart from "./components/cart/Cart";
 
 function App() {
   const [count, setCount] = useState(0);
-  // const [Visibility, setVisibility] = useState(false);
   const [products, setProducts] = useState([]);
   const [cartProducts, setcartProducts] = useState([]);
 
@@ -45,18 +44,20 @@ function App() {
   const countfun = () => {
     setCount(count + 1);
   };
-  // const VisibilityState = (value) => {
-  //   setVisibility(value);
-  // };
+
   return (
     <div className="App">
       <Header count={count}/>
+      {/* Just For perfect Scrolling (href="#ProductBox") */}
+      <div id="ProductBox"></div>
       <Shop
         countfun={countfun}
         products={products}
         AddtoCart={AddtoCart}
         key={1}
       />
+      {/* Just For perfect Scrolling (href="#CardBox")*/}
+      <div id="CardBox"></div>
       <Cart count={count} setCount={setCount} cartProducts={cartProducts} />
     </div>
   );

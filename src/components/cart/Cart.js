@@ -47,6 +47,7 @@ const Cart = (props) => {
         <section id="Total_Box">
           {props.setCount(quantity)}
           <div>
+            <hr></hr>
             <h4>Order Summary</h4>
             <p>Selected Items: {quantity}</p>
             <p>Total price: ${total}</p>

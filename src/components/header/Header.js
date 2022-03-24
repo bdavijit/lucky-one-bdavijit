@@ -29,11 +29,11 @@ const Header = (props) => {
         </a>
 
         <nav className="navbar">
-          <a href="#header">home</a>
-          <a href="#services">services</a>
-          <a href="#about">about us</a>
-          <a href="#contact">contact</a>
-          <a href="#cart" style={{ background: "#2b2d42" }}>
+          <a href="#ProductBox">home</a>
+          <a href="#ProductBox">services</a>
+          <a href="#ProductBox">about us</a>
+          <a href="#ProductBox">contact</a>
+          <a href="#CardBox" style={{ background: "#2b2d42" }}>
             <button
               type="button"
               className="btn btn-danger position-relative"
