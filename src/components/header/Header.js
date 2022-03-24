@@ -36,22 +36,22 @@ const Header = (props) => {
           <a href="#cart" style={{ background: "#2b2d42" }}>
             <button
               type="button"
-              class="btn btn-danger position-relative"
-              onclick="loadLocalStorageData()"
+              className="btn btn-danger position-relative"
+              // onClick={}
             >
               cart
               <span
                 id="cart_Item_num"
-                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary"
+                className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary"
               >
                 {props.count}
-                <span class="visually-hidden">unread messages</span>
+                <span className="visually-hidden">unread messages</span>
               </span>
             </button>
           </a>
         </nav>
 
-        <div id="menu-btn" class="fa-solid fa-bars fa-2x"></div>
+        <div id="menu-btn" className="fa-solid fa-bars fa-2x"></div>
       </header>
     </>
   );

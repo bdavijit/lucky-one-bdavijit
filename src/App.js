@@ -1,11 +1,27 @@
 import "./App.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Shop from "./components/shop/Shop";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./components/header/Header";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("products.JSON").then(async (response) => {
+      try {
+        const data = await response.json();
+        // console.log("response data?", data);
+        setProducts(data);
+      } catch (error) {
+        console.log("Error happened here!");
+        console.error(error);
+      }
+    });
+  }, []);
+
+  console.log(products);
 
   const countfun = () => {
     setCount(count + 1);
