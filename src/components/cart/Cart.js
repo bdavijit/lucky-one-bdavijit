@@ -2,17 +2,21 @@ import React from "react";
 import "./Cart.css";
 
 const Cart = (props) => {
-  // console.log(props.count);
-  //   console.log(props.cartProducts);
-  // props.setCount(2);
+  let total = 0;
+  let shipping = 0;
+  let quantity = 0;
+  for (const product of props.cartProducts) {
+    quantity = quantity + product.quantity;
+    total = total + product.price * product.quantity;
+    shipping = 20 * product.quantity ;
+  }
+  const tax = parseFloat((total * 0.1).toFixed(2));
+  const grandTotal = total + shipping + tax;
+
   return (
     <>
       <section id="Cart_Box">
         {props.cartProducts.map((element) => {
-          console.log(element.name);
-          console.log(element.price);
-          console.log(element.quantity);
-          console.log(element.image);
           return (
             <>
               <div className="cartItem">
@@ -39,7 +43,18 @@ const Cart = (props) => {
             </>
           );
         })}
-        
+
+        <section id="Total_Box">
+          {props.setCount(quantity)}
+          <div>
+            <h4>Order Summary</h4>
+            <p>Selected Items: {quantity}</p>
+            <p>Total price: ${total}</p>
+            <p>Total Shipping: ${shipping}</p>
+            <p>Tax: {tax}</p>
+            <h5>Grand Total: {grandTotal.toFixed(2)}</h5>
+          </div>
+        </section>
       </section>
     </>
   );

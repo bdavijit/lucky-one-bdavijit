@@ -7,13 +7,13 @@ const Shop = (props) => {
   // console.log(props.products);
   return (
     <>
-      <button
+      {/* <button
         type="button"
         className="btn btn-primary"
         onClick={props.countfun}
       >
         Primary
-      </button>
+      </button> */}
 
       <section id="Items">
         {props.products.map((product) => {
