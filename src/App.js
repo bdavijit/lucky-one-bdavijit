@@ -3,6 +3,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Shop from "./components/shop/Shop";
 import { useEffect, useState } from "react";
 import Header from "./components/header/Header";
+import Cart from "./components/cart/Cart";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -23,22 +24,19 @@ function App() {
   }, []);
 
   const AddtoCart = (AddProduct) => {
-    console.log(AddProduct);
-    let flag = true;
-    let newArr = [];
-
-    cartProducts.forEach((cartProduct) => {
-      if (cartProduct.id === AddProduct.id) {
-        cartProduct.quantity += 1;
-        flag = false;
-        console.log(cartProducts);
-      }
-    });
-
-    if(flag){
-      newArr = [...cartProducts , AddProduct];
-      setcartProducts(newArr);
+    let newCart = [];
+    const exists = cartProducts.find(product => product.id === AddProduct.id);
+    if(!exists){
+         AddProduct.quantity = 1;
+        newCart = [...cartProducts, AddProduct];
     }
+    else{
+        const rest = cartProducts.filter(product => product.id !== AddProduct.id);
+        exists.quantity = exists.quantity + 1;
+        newCart = [...rest, exists];
+    }
+    
+    setcartProducts(newCart);
   };
 
   console.log(cartProducts);
@@ -56,7 +54,7 @@ function App() {
         AddtoCart={AddtoCart}
         key={1}
       />
-      
+      <Cart count={count} setCount={setCount} cartProducts={cartProducts} />
     </div>
   );
 }
