@@ -7,7 +7,7 @@ import Header from "./components/header/Header";
 function App() {
   const [count, setCount] = useState(0);
   const [products, setProducts] = useState([]);
-  // const [cartProducts, setcartProducts] = useState([]);
+  const [cartProducts, setcartProducts] = useState([]);
 
   useEffect(() => {
     fetch("products.JSON").then(async (response) => {
@@ -22,25 +22,41 @@ function App() {
     });
   }, []);
 
-  // const AddtoCart = ( product ) => {
-  //   // let newArray = [];
-    
-  // };
+  const AddtoCart = (AddProduct) => {
+    console.log(AddProduct);
+    let flag = true;
+    let newArr = [];
 
-  console.log(products);
+    cartProducts.forEach((cartProduct) => {
+      if (cartProduct.id === AddProduct.id) {
+        cartProduct.quantity += 1;
+        flag = false;
+        console.log(cartProducts);
+      }
+    });
+
+    if(flag){
+      newArr = [...cartProducts , AddProduct];
+      setcartProducts(newArr);
+    }
+  };
+
+  console.log(cartProducts);
 
   const countfun = () => {
     setCount(count + 1);
   };
   return (
     <div className="App">
-
-      <Header count={count}/>
+      <Header count={count} />
       <h1>{count}</h1>
-      <Shop 
-      countfun={countfun}
-      products ={products}
-       />
+      <Shop
+        countfun={countfun}
+        products={products}
+        AddtoCart={AddtoCart}
+        key={1}
+      />
+      
     </div>
   );
 }

@@ -32,12 +32,12 @@ const Shop = (props) => {
                   <p className="card-text text-center fw-bold text-danger">
                     {product.price}
                   </p>
-                  
-                  <div class="d-grid gap-2">
+
+                  <div className="d-grid gap-2">
                     <button 
-                    class="btn btn-primary"
+                    className="btn btn-primary"
                      type="button"
-                     // onClick={() => props.handleAddToCart(props.product)}
+                     onClick={() => props.AddtoCart(product)}
                       >
                        Add to cart
                     </button>
