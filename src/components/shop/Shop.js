@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./Shop.css";
 
 const Shop = (props) => {
@@ -15,15 +16,36 @@ const Shop = (props) => {
       </button>
 
       <section id="Items">
-        {props.products.forEach((product) => {
-          console.log(product.name);
-          console.log(product.id);
-          console.log(product.price);
-          console.log(product.image);
-          return(
-              <>
-                
-             </>
+        {props.products.map((product) => {
+          return (
+            <>
+              <div className="MyCard">
+                <div className="image_height">
+                  <img
+                    src={product.image}
+                    className="my-img-fluid"
+                    alt={product.name}
+                  />
+                </div>
+                <div className="card-body">
+                  <h5 className="card-title text-center">{product.name}</h5>
+                  <p className="card-text text-center fw-bold text-danger">
+                    {product.price}
+                  </p>
+                  
+                  <div class="d-grid gap-2">
+                    <button 
+                    class="btn btn-primary"
+                     type="button"
+                     // onClick={() => props.handleAddToCart(props.product)}
+                      >
+                       Add to cart
+                    </button>
+                  </div>
+
+                </div>
+              </div>
+            </>
           );
         })}
       </section>
@@ -32,3 +54,8 @@ const Shop = (props) => {
 };
 
 export default Shop;
+
+// console.log(product.name);
+// console.log(product.id);
+// console.log(product.price);
+// console.log(product.image);

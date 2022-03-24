@@ -34,6 +34,9 @@
     max-height: 100%;
 
   }
+  .content-center{
+      justify-content: center !important;
+  }
   /* 
   mobile responsive with bootstrap 5 breakpoint*/
   @media screen and (max-width: 768px) {
