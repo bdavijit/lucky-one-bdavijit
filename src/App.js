@@ -7,6 +7,7 @@ import Header from "./components/header/Header";
 function App() {
   const [count, setCount] = useState(0);
   const [products, setProducts] = useState([]);
+  // const [cartProducts, setcartProducts] = useState([]);
 
   useEffect(() => {
     fetch("products.JSON").then(async (response) => {
@@ -21,6 +22,11 @@ function App() {
     });
   }, []);
 
+  // const AddtoCart = ( product ) => {
+  //   // let newArray = [];
+    
+  // };
+
   console.log(products);
 
   const countfun = () => {
@@ -31,7 +37,10 @@ function App() {
 
       <Header count={count}/>
       <h1>{count}</h1>
-      <Shop countfun={countfun} />
+      <Shop 
+      countfun={countfun}
+      products ={products}
+       />
     </div>
   );
 }
