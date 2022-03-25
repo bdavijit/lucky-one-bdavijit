@@ -35,28 +35,31 @@ const Cart = (props) => {
                 </div>
                 <div>
                   <div>Quintity:{element.quantity}</div>
-                  <button 
-                  type="button"
-                   class="btn btn-outline-dark m-1"
-                   onClick={() => props.AddtoCart(element , "minus")}
-                   >
+                  <button
+                    type="button"
+                    class="btn btn-outline-dark m-1"
+                    onClick={() => props.AddtoCart(element, "minus")}
+                  >
                     -
                   </button>
-                  <button 
-                  type="button" 
-                  class="btn btn-outline-dark"
-                  onClick={() => props.AddtoCart(element)}
+                  <button
+                    type="button"
+                    class="btn btn-outline-dark"
+                    onClick={() => props.AddtoCart(element)}
                   >
                     +
                   </button>
                 </div>
-                <button
-                  type="button"
-                  className="btn btn-danger"
-                  onClick={() => props.DeleteCart(element)}
-                >
-                  Delete
-                </button>
+                <div>
+                  <p className="card-text text-center">{element.price * element.quantity}</p>
+                  <button
+                    type="button"
+                    className="btn btn-danger"
+                    onClick={() => props.DeleteCart(element)}
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
             </>
           );
