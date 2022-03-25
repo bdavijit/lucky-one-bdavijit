@@ -48,34 +48,6 @@ function App() {
     setcartProducts(savedCart);
 }, [products])
 
-  // const loadDataFromLocal = () => {
-  //   window.onload = function () {
-  //     const cartData = localStorage.getItem("cart");
-  //     // console.log(cartData);
-  //     let newArr2 = [];
-  //     let newArr = products;
-  //     console.log(newArr);
-
-  //     if (cartData === null) {
-  //       setcartProducts([]);
-  //     } else {
-  //       let localDatas = JSON.parse(cartData);
-  //       console.log(localDatas);
-
-  //       newArr2 = newArr.filter((product) => {
-  //         for (const localData of localDatas) {
-  //           if (product.id === localData.id) {
-  //             product.quantity = localData.quantity;
-  //             return product;
-  //           }
-  //         }
-  //       });
-
-  //       // console.log(newArr2);
-  //       setcartProducts(newArr2);
-  //     }
-  //   };
-  // };
 
   const StorData = () => {
     console.log(cartProducts);
@@ -136,7 +108,11 @@ function App() {
       <Header count={count} />
       {/* Just For perfect Scrolling (href="#ProductBox") */}
       <div id="ProductBox"></div>
-      <Shop countfun={countfun} products={products} AddtoCart={AddtoCart} />
+      <Shop
+       countfun={countfun}
+        products={products}
+        AddtoCart={AddtoCart} 
+        />
       {/* Just For perfect Scrolling (href="#CardBox")*/}
       <div id="CardBox"></div>
       <Cart

@@ -37,14 +37,14 @@ const Cart = (props) => {
                   <div>Quintity:{element.quantity}</div>
                   <button
                     type="button"
-                    class="btn btn-outline-dark m-1"
+                    className="btn btn-outline-dark m-1"
                     onClick={() => props.AddtoCart(element, "minus")}
                   >
                     -
                   </button>
                   <button
                     type="button"
-                    class="btn btn-outline-dark"
+                    className="btn btn-outline-dark"
                     onClick={() => props.AddtoCart(element)}
                   >
                     +
