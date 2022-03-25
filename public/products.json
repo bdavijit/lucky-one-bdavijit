@@ -40,5 +40,37 @@
     "stock": 10,
     "quantity": 1,
     "image": "https://www.startech.com.bd/image/cache/catalog/laptop/lenovo/d330/d330-1-500x500.jpg"
+  },
+  {
+    "id": 6,
+    "name": "HP 15s-du1115TU Celeron N4020 15.6 HD Laptop",
+    "price": 45000,
+    "stock": 10,
+    "quantity": 1,
+    "image": "https://www.startech.com.bd/image/cache/catalog/laptop/hp-laptop/15s-du1115tu/15s-du1115tu-01-500x500.jpg"
+  },
+  {
+    "id": 7,
+    "name": "MSI Pulse GL66 12UEK Core i7 12th Gen RTX 3060 6GB Graphics 15.6'' FHD Gaming Laptop",
+    "price": 199900,
+    "stock": 10,
+    "quantity": 1,
+    "image": "https://www.startech.com.bd/image/cache/catalog/laptop/msi/pulse-gl66-11uck/pulse-gl66-11uck-01-500x500.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Xiaomi RedmiBook Pro 14 Ryzen 5 5500U 14'' Laptop",
+    "price": 71500,
+    "stock": 10,
+    "quantity": 1,
+    "image": "https://www.startech.com.bd/image/cache/catalog/laptop/mi-laptop/redmibook-pro-14/redmibook-pro-14-01-500x500.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Walton Passion BP5800 Core i5 8th Gen 15.6'' HD Laptop",
+    "price": 52550,
+    "stock": 10,
+    "quantity": 1,
+    "image": "https://www.startech.com.bd/image/cache/catalog/laptop/walton/passion-bp5800/passion-bp5800-front-500x500.jpg"
   }
 ]
