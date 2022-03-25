@@ -23,34 +23,41 @@ function App() {
     });
   }, []);
 
-  const DeleteCart = ( { id } ) =>{
-    const rest = cartProducts.filter(product => product.id !== id);
+  const DeleteCart = ({ id }) => {
+    const rest = cartProducts.filter((product) => product.id !== id);
     setcartProducts(rest);
-  }
+  };
 
-  const AddtoCart = (AddProduct , btnIdentity = "plus") => {
+  const AddtoCart = (AddProduct, btnIdentity = "plus") => {
     let newCart = [];
-    const exists = cartProducts.find(product => product.id === AddProduct.id);
-    if(!exists){
-         AddProduct.quantity = 1;
-        newCart = [...cartProducts, AddProduct];
-    }
-    else{
-        const rest = cartProducts.filter(product => product.id !== AddProduct.id);
-        if(btnIdentity === "plus"){
-          exists.quantity = exists.quantity + 1;
-        }else{
-          // because quantity>=1
-          if(exists.quantity !== 1){
-            exists.quantity = exists.quantity - 1;
+    //just use to copy to newArr
+    let newArr = cartProducts.filter((product) => product);
+
+    const exists = cartProducts.find((product) => product.id === AddProduct.id);
+    if (!exists) {
+      AddProduct.quantity = 1;
+      newCart = [...cartProducts, AddProduct];
+      setcartProducts(newCart);
+    } else {
+      
+      // if i used [...rest, exists];, then cart product always change the position when i click (+ -) button
+      for (const product of newArr) {
+        if (product.id === AddProduct.id) {
+          if (btnIdentity === "plus") {
+            product.quantity +=  1;
+          } else {
+            // because quantity>=1
+            if (product.quantity !== 1) {
+             product.quantity -=  1;
+            }
           }
-          
         }
-        
-        newCart = [...rest, exists];
+      }
+      setcartProducts(newArr);
+      // console.log(cartProducts);
     }
+
     
-    setcartProducts(newCart);
   };
 
   console.log(cartProducts);
@@ -61,23 +68,18 @@ function App() {
 
   return (
     <div className="App">
-      <Header count={count}/>
+      <Header count={count} />
       {/* Just For perfect Scrolling (href="#ProductBox") */}
       <div id="ProductBox"></div>
-      <Shop
-        countfun={countfun}
-        products={products}
-        AddtoCart={AddtoCart}
-        
-      />
+      <Shop countfun={countfun} products={products} AddtoCart={AddtoCart} />
       {/* Just For perfect Scrolling (href="#CardBox")*/}
       <div id="CardBox"></div>
-      <Cart 
-      count={count} 
-      setCount={setCount}
-      cartProducts={cartProducts}
-      DeleteCart={DeleteCart}
-      AddtoCart={AddtoCart}
+      <Cart
+        count={count}
+        setCount={setCount}
+        cartProducts={cartProducts}
+        DeleteCart={DeleteCart}
+        AddtoCart={AddtoCart}
       />
     </div>
   );
