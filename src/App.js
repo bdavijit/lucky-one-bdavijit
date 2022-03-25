@@ -28,7 +28,7 @@ function App() {
     setcartProducts(rest);
   }
 
-  const AddtoCart = (AddProduct) => {
+  const AddtoCart = (AddProduct , btnIdentity = "plus") => {
     let newCart = [];
     const exists = cartProducts.find(product => product.id === AddProduct.id);
     if(!exists){
@@ -37,7 +37,16 @@ function App() {
     }
     else{
         const rest = cartProducts.filter(product => product.id !== AddProduct.id);
-        exists.quantity = exists.quantity + 1;
+        if(btnIdentity === "plus"){
+          exists.quantity = exists.quantity + 1;
+        }else{
+          // because quantity>=1
+          if(exists.quantity !== 1){
+            exists.quantity = exists.quantity - 1;
+          }
+          
+        }
+        
         newCart = [...rest, exists];
     }
     
@@ -59,7 +68,7 @@ function App() {
         countfun={countfun}
         products={products}
         AddtoCart={AddtoCart}
-        key={1}
+        
       />
       {/* Just For perfect Scrolling (href="#CardBox")*/}
       <div id="CardBox"></div>
@@ -68,7 +77,7 @@ function App() {
       setCount={setCount}
       cartProducts={cartProducts}
       DeleteCart={DeleteCart}
-        
+      AddtoCart={AddtoCart}
       />
     </div>
   );
