@@ -21,7 +21,73 @@ function App() {
         console.error(error);
       }
     });
+
+  
   }, []);
+
+  useEffect( () =>{
+    const cartData = localStorage.getItem("cart");
+    const savedCart = [];
+    if(cartData === null){
+
+    }else{
+      const storedCarts = JSON.parse(cartData);
+      
+      for(const storedCart of storedCarts){
+        console.log(savedCart);
+          const addedProduct = products.find(product => product.id === storedCart.id);
+          if(addedProduct){
+              // const quantity = storedCart[id];
+              addedProduct.quantity = storedCart.quantity;
+              savedCart.push(addedProduct);
+          }
+      }
+      console.log(savedCart);
+    }
+   
+    setcartProducts(savedCart);
+}, [products])
+
+  // const loadDataFromLocal = () => {
+  //   window.onload = function () {
+  //     const cartData = localStorage.getItem("cart");
+  //     // console.log(cartData);
+  //     let newArr2 = [];
+  //     let newArr = products;
+  //     console.log(newArr);
+
+  //     if (cartData === null) {
+  //       setcartProducts([]);
+  //     } else {
+  //       let localDatas = JSON.parse(cartData);
+  //       console.log(localDatas);
+
+  //       newArr2 = newArr.filter((product) => {
+  //         for (const localData of localDatas) {
+  //           if (product.id === localData.id) {
+  //             product.quantity = localData.quantity;
+  //             return product;
+  //           }
+  //         }
+  //       });
+
+  //       // console.log(newArr2);
+  //       setcartProducts(newArr2);
+  //     }
+  //   };
+  // };
+
+  const StorData = () => {
+    console.log(cartProducts);
+
+    let cartData = [];
+
+    cartProducts.forEach((product) => {
+      cartData = [...cartData, { id: product.id, quantity: product.quantity }];
+    });
+    // console.log(cartData);
+    localStorage.setItem("cart", JSON.stringify(cartData));
+  };
 
   const DeleteCart = ({ id }) => {
     const rest = cartProducts.filter((product) => product.id !== id);
@@ -39,28 +105,27 @@ function App() {
       newCart = [...cartProducts, AddProduct];
       setcartProducts(newCart);
     } else {
-      
       // if i used [...rest, exists];, then cart product always change the position when i click (+ -) button
       for (const product of newArr) {
         if (product.id === AddProduct.id) {
           if (btnIdentity === "plus") {
-            product.quantity +=  1;
+            product.quantity += 1;
           } else {
             // because quantity>=1
             if (product.quantity !== 1) {
-             product.quantity -=  1;
+              product.quantity -= 1;
             }
           }
         }
       }
       setcartProducts(newArr);
+
       // console.log(cartProducts);
     }
-
-    
+    StorData();
   };
 
-  console.log(cartProducts);
+  // console.log(cartProducts);
 
   const countfun = () => {
     setCount(count + 1);
