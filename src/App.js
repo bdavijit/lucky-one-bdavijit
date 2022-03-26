@@ -21,33 +21,31 @@ function App() {
         console.error(error);
       }
     });
-
-  
   }, []);
 
-  useEffect( () =>{
+  useEffect(() => {
     const cartData = localStorage.getItem("cart");
     const savedCart = [];
-    if(cartData === null){
-
-    }else{
+    if (cartData === null) {
+    } else {
       const storedCarts = JSON.parse(cartData);
-      
-      for(const storedCart of storedCarts){
+
+      for (const storedCart of storedCarts) {
         console.log(savedCart);
-          const addedProduct = products.find(product => product.id === storedCart.id);
-          if(addedProduct){
-              // const quantity = storedCart[id];
-              addedProduct.quantity = storedCart.quantity;
-              savedCart.push(addedProduct);
-          }
+        const addedProduct = products.find(
+          (product) => product.id === storedCart.id
+        );
+        if (addedProduct) {
+          // const quantity = storedCart[id];
+          addedProduct.quantity = storedCart.quantity;
+          savedCart.push(addedProduct);
+        }
       }
       console.log(savedCart);
     }
-   
-    setcartProducts(savedCart);
-}, [products])
 
+    setcartProducts(savedCart);
+  }, [products]);
 
   const StorData = () => {
     console.log(cartProducts);
@@ -61,15 +59,10 @@ function App() {
     localStorage.setItem("cart", JSON.stringify(cartData));
   };
 
-
-
   const DeleteCart = ({ id }) => {
     const rest = cartProducts.filter((product) => product.id !== id);
     setcartProducts(rest);
   };
-
-
-
 
   const AddtoCart = (AddProduct, btnIdentity = "plus") => {
     let newCart = [];
@@ -85,11 +78,12 @@ function App() {
       // if i used [...rest, exists];, then cart product always change the position when i click (+ -) button
       for (const product of newArr) {
         if (product.id === AddProduct.id) {
-          if(product.stock === AddProduct.quantity){
-             alert("stock over");
-          }
-          else if (btnIdentity === "plus") {
-            product.quantity += 1;
+          if (btnIdentity === "plus") {
+            if (product.stock === AddProduct.quantity) {
+              alert("stock over");
+            } else {
+              product.quantity += 1;
+            }
           } else {
             // because quantity>=1
             if (product.quantity !== 1) {
@@ -117,10 +111,10 @@ function App() {
       {/* Just For perfect Scrolling (href="#ProductBox") */}
       <div id="ProductBox"></div>
       <Shop
-      //  countfun={countfun}
+        //  countfun={countfun}
         products={products}
-        AddtoCart={AddtoCart} 
-        />
+        AddtoCart={AddtoCart}
+      />
       {/* Just For perfect Scrolling (href="#CardBox")*/}
       <div id="CardBox"></div>
       <Cart
@@ -129,9 +123,7 @@ function App() {
         cartProducts={cartProducts}
         DeleteCart={DeleteCart}
         AddtoCart={AddtoCart}
-        setcartProducts ={setcartProducts}
-
-
+        setcartProducts={setcartProducts}
       />
     </div>
   );
