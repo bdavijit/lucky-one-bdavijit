@@ -60,7 +60,7 @@ const Cart = ({
         {cartProducts.map((product) => (
           <Cartpoduct
             key={product.id}
-            element = {product}
+            element={product}
             count={count}
             setCount={setCount}
             cartProducts={cartProducts}
@@ -69,7 +69,6 @@ const Cart = ({
             setcartProducts={setcartProducts}
           ></Cartpoduct>
         ))}
-       
 
         <div className="d-grid gap-2 col-6 mx-auto">
           <button

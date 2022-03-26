@@ -1,8 +1,6 @@
 import "./heder.css";
 
-
-
-const Header = ({count}) => {
+const Header = ({ count }) => {
   window.onload = function () {
     const menu = document.querySelector("#menu-btn");
     const navbar = document.querySelector(".header .navbar");
@@ -12,8 +10,6 @@ const Header = ({count}) => {
       navbar.classList.toggle("active");
     };
   };
-
-
 
   return (
     <>
@@ -26,11 +22,7 @@ const Header = ({count}) => {
           <a href="#ProductBox">home</a>
           <a href="#commingSoon">services</a>
           <a href="#CardBox" style={{ background: "#120E43" }}>
-            <button
-              type="button"
-              className="btn btn-danger position-relative"
-              
-            >
+            <button type="button" className="btn btn-danger position-relative">
               cart
               <span
                 id="cart_Item_num"
@@ -50,4 +42,3 @@ const Header = ({count}) => {
 };
 
 export default Header;
-

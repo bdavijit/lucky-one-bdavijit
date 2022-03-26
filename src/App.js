@@ -25,7 +25,6 @@ function App() {
     });
   }, []);
 
-
   //collect cart data from storage
   useEffect(() => {
     const cartData = localStorage.getItem("cart");
@@ -40,17 +39,14 @@ function App() {
           (product) => product.id === storedCart.id
         );
         if (addedProduct) {
-      
           addedProduct.quantity = storedCart.quantity;
           savedCart.push(addedProduct);
         }
       }
-      
     }
 
     setcartProducts(savedCart);
   }, [products]);
-
 
   //store to local storage
   const StorData = () => {
