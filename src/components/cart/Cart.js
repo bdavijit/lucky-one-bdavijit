@@ -27,13 +27,14 @@ const Cart = (props) => {
     let cart2 = [];
     let cart = props.cartProducts.map((product) => product);
     let value;
-    alert(cartlength);
+   
 
     for (;;) {
       value = Math.floor(Math.random() * 11);
       // console.log(value);
 
       if(cartlength < 1){
+        alert("no data found");
         return;
       }
       if (cartlength - 1 < value) {

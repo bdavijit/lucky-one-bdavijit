@@ -25,7 +25,7 @@ const Header = (props) => {
     <>
       <header className="header" id="header">
         <a href="#header" className="logo">
-          <i className="fas fa-mask"></i>Ecom
+          <i className="fas fa-mask"></i>EarthTech
         </a>
 
         <nav className="navbar">
