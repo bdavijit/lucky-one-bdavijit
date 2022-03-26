@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Razer Blade 15 Advanced Model Core i7 11th Gen RTX 3060 6GB Graphics 15.6 QHD 240Hz Gaming Laptop",
     "price": 60000,
-    "stock": 5,
+    "stock": 2,
     "quantity": 1,
     "image": "https://www.startech.com.bd/image/cache/catalog/laptop/razer/blade-15-advanced-model/blade-15-advanced-model-01-500x500.jpg"
     
@@ -28,7 +28,7 @@
     "id": 4,
     "name": "Dell Inspiron 15 3511 Core i5 11th Gen 15.6 FHD Laptop",
     "price": 62000,
-    "stock": 10,
+    "stock": 5,
     "quantity": 1,
     "image": "https://www.startech.com.bd/image/cache/catalog/laptop/dell/inspiron-15-3511/inspiron-15-3511-07-500x500.jpg"
     
@@ -37,7 +37,7 @@
     "id": 5,
     "name": "Lenovo IdeaPad D330 10IGL Intel CDC N4020 10.1 HD Touch Laptop",
     "price": 38700,
-    "stock": 10,
+    "stock": 3,
     "quantity": 1,
     "image": "https://www.startech.com.bd/image/cache/catalog/laptop/lenovo/d330/d330-1-500x500.jpg"
   },
@@ -53,7 +53,7 @@
     "id": 7,
     "name": "MSI Pulse GL66 12UEK Core i7 12th Gen RTX 3060 6GB Graphics 15.6'' FHD Gaming Laptop",
     "price": 199900,
-    "stock": 10,
+    "stock": 6,
     "quantity": 1,
     "image": "https://www.startech.com.bd/image/cache/catalog/laptop/msi/pulse-gl66-11uck/pulse-gl66-11uck-01-500x500.jpg"
   },
@@ -61,7 +61,7 @@
     "id": 8,
     "name": "Xiaomi RedmiBook Pro 14 Ryzen 5 5500U 14'' Laptop",
     "price": 71500,
-    "stock": 10,
+    "stock": 2,
     "quantity": 1,
     "image": "https://www.startech.com.bd/image/cache/catalog/laptop/mi-laptop/redmibook-pro-14/redmibook-pro-14-01-500x500.jpg"
   },
@@ -69,7 +69,7 @@
     "id": 9,
     "name": "Walton Passion BP5800 Core i5 8th Gen 15.6'' HD Laptop",
     "price": 52550,
-    "stock": 10,
+    "stock": 3,
     "quantity": 1,
     "image": "https://www.startech.com.bd/image/cache/catalog/laptop/walton/passion-bp5800/passion-bp5800-front-500x500.jpg"
   }

@@ -85,7 +85,10 @@ function App() {
       // if i used [...rest, exists];, then cart product always change the position when i click (+ -) button
       for (const product of newArr) {
         if (product.id === AddProduct.id) {
-          if (btnIdentity === "plus") {
+          if(product.stock === AddProduct.quantity){
+             alert("stock over");
+          }
+          else if (btnIdentity === "plus") {
             product.quantity += 1;
           } else {
             // because quantity>=1
@@ -114,7 +117,7 @@ function App() {
       {/* Just For perfect Scrolling (href="#ProductBox") */}
       <div id="ProductBox"></div>
       <Shop
-       countfun={countfun}
+      //  countfun={countfun}
         products={products}
         AddtoCart={AddtoCart} 
         />

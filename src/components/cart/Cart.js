@@ -1,14 +1,14 @@
-// import { Alert } from "bootstrap";
+
 import React from "react";
 import "./Cart.css";
-// import { StorData} from '../../App';
 
-const Cart = (props) => {
-  // console.log(props);
+
+const Cart = ({count, setCount, cartProducts, DeleteCart, AddtoCart, setcartProducts}) => {
+  
   let total = 0;
   let shipping = 0;
   let quantity = 0;
-  for (const product of props.cartProducts) {
+  for (const product of cartProducts) {
     quantity = quantity + product.quantity;
     total = total + product.price * product.quantity;
     shipping = 20 * product.quantity;
@@ -23,9 +23,9 @@ const Cart = (props) => {
   }
 
   const ChooseOne = () => {
-    let cartlength = props.cartProducts.length;
+    let cartlength = cartProducts.length;
     let cart2 = [];
-    let cart = props.cartProducts.map((product) => product);
+    let cart = cartProducts.map((product) => product);
     let value;
    
 
@@ -49,18 +49,18 @@ const Cart = (props) => {
 
     // console.log("final", value, cart2, typeof cart2);
 
-    props.setcartProducts(cart2);
+    setcartProducts(cart2);
   };
 
   // const setone =(data) =>{
 
-  //   // props.setcartProducts(data)
+  //   // setcartProducts(data)
   // }
 
   return (
     <>
       <section id="Cart_Box">
-        {props.cartProducts.map((element) => {
+        {cartProducts.map((element) => {
           return (
             <>
               <div className="cartItem">
@@ -82,14 +82,14 @@ const Cart = (props) => {
                   <button
                     type="button"
                     className="btn btn-outline-dark m-1"
-                    onClick={() => props.AddtoCart(element, "minus")}
+                    onClick={() => AddtoCart(element, "minus")}
                   >
                     -
                   </button>
                   <button
                     type="button"
                     className="btn btn-outline-dark"
-                    onClick={() => props.AddtoCart(element)}
+                    onClick={() => AddtoCart(element)}
                   >
                     +
                   </button>
@@ -101,7 +101,7 @@ const Cart = (props) => {
                   <button
                     type="button"
                     className="btn btn-danger"
-                    onClick={() => props.DeleteCart(element)}
+                    onClick={() => DeleteCart(element)}
                   >
                     Delete
                   </button>
@@ -123,7 +123,7 @@ const Cart = (props) => {
           <button
             className="btn text-white bg-danger"
             type="button"
-            onClick={() => props.setcartProducts([])}
+            onClick={() => setcartProducts([])}
           >
             Delete All
           </button>
@@ -137,7 +137,7 @@ const Cart = (props) => {
         </div>
 
         <section id="Total_Box">
-          {props.setCount(quantity)}
+          {setCount(quantity)}
           <div>
             <hr></hr>
             <h4 className="text-primary">Order Summary</h4>

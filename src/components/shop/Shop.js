@@ -3,13 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import "./Shop.css";
 
-const Shop = (props) => {
+const Shop = ({products , AddtoCart}) => {
 
   return (
     <>
 
       <section id="Items">
-        {props.products.map((product) => {
+        {products.map((product) => {
           return (
             <>
               <div className="MyCard">
@@ -31,7 +31,7 @@ const Shop = (props) => {
                     className="btn text-white"
                      type="button"
                      style={{ background: "#120E43" }}
-                     onClick={() => props.AddtoCart(product)}
+                     onClick={() => AddtoCart(product)}
                       >
                       <FontAwesomeIcon icon={faShoppingCart}></FontAwesomeIcon> Add to cart
                     </button>

@@ -1,16 +1,8 @@
 import "./heder.css";
 
-{
-  /*  must add at index.html
-
-<script
-src="https://kit.fontawesome.com/39de285129.js"
-crossorigin="anonymous"
-></script> */
-}
 
 
-const Header = (props) => {
+const Header = ({count}) => {
   window.onload = function () {
     const menu = document.querySelector("#menu-btn");
     const navbar = document.querySelector(".header .navbar");
@@ -37,14 +29,14 @@ const Header = (props) => {
             <button
               type="button"
               className="btn btn-danger position-relative"
-              // onClick={}
+              
             >
               cart
               <span
                 id="cart_Item_num"
                 className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary"
               >
-                {props.count}
+                {count}
                 <span className="visually-hidden">unread messages</span>
               </span>
             </button>
