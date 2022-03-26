@@ -11,6 +11,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [cartProducts, setcartProducts] = useState([]);
 
+  //loadData
   useEffect(() => {
     fetch("products.JSON").then(async (response) => {
       try {
@@ -24,6 +25,8 @@ function App() {
     });
   }, []);
 
+
+  //collect cart data from storage
   useEffect(() => {
     const cartData = localStorage.getItem("cart");
     const savedCart = [];
@@ -37,17 +40,19 @@ function App() {
           (product) => product.id === storedCart.id
         );
         if (addedProduct) {
-          // const quantity = storedCart[id];
+      
           addedProduct.quantity = storedCart.quantity;
           savedCart.push(addedProduct);
         }
       }
-      console.log(savedCart);
+      
     }
 
     setcartProducts(savedCart);
   }, [products]);
 
+
+  //store to local storage
   const StorData = () => {
     console.log(cartProducts);
 
@@ -60,9 +65,11 @@ function App() {
     localStorage.setItem("cart", JSON.stringify(cartData));
   };
 
+  //click delete button -> delete item from cart
   const DeleteCart = ({ id }) => {
     const rest = cartProducts.filter((product) => product.id !== id);
     setcartProducts(rest);
+    StorData();
   };
 
   const AddtoCart = (AddProduct, btnIdentity = "plus") => {
@@ -102,6 +109,7 @@ function App() {
 
   // console.log(cartProducts);
 
+  //use in other component
   const countfun = () => {
     setCount(count + 1);
   };

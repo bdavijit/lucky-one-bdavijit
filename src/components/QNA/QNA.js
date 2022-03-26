@@ -40,25 +40,26 @@ const QNA = () => {
           <p>
             <strong>Model-View-Controller:</strong> There are three types of
             components in MVC
-            <br /> <strong> Model:</strong> Manages system data and rules.
+            <br /><br /> <strong> Model:</strong> Manages system data and rules.
             <br /> <strong>View:</strong> Work with Dom. How to set and update
             display elements and data.
             <br /> <strong> Controller:</strong> Listens to user input data and
             website event changes। Send to a system model.
           </p>
           <p>
-          <strong>Flow:</strong> User > controller > model > View
-             Controller doesn't change View directly like vanilla js.<br></br> 
+          <strong>Flow:</strong> User - controller - model - View<br></br>
+             Controller doesn't change View directly like vanilla js.<br></br>
+           </p> 
            <strong>Virtual Dom and diff algorithm:</strong> 
-           <ol>
-               <li>The concept of a virtoal dom come from the DIFF algorithm</li>
-               <li>It is JS(JSON) object. So that operation speed is better than DOM(html/css render tree).</li>
-               <li>The DFF algorithm first <b>arranges changes</b> to the virtual DOM. Then just change the node by updating the DOM</li>
-               <li>Don't <b>traverse</b> node those nodes where has no change</li>
-               <li>If everything is the same then just change/load props and state data</li>
-           </ol>
+           <ul>
+               <li>1. The concept of a virtoal dom come from the DIFF algorithm</li>
+               <li>2. It is JS(JSON) object. So that operation speed is better than DOM(html/css render tree).</li>
+               <li>3. The DFF algorithm first <b>sort changes</b> to the virtual DOM. Then just change the node by updating the DOM</li>
+               <li>4. Don't <b>traverse</b> node those nodes where has no change</li>
+               <li>5. If everything is the same then just change/load props and state data</li>
+           </ul>
   
-          </p>
+         
         </div>
       </section>
     </>

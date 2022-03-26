@@ -28,7 +28,7 @@ const Cart = ({count, setCount, cartProducts, DeleteCart, AddtoCart, setcartProd
     let cart = cartProducts.map((product) => product);
     let value;
    
-
+    // generate random value
     for (;;) {
       value = Math.floor(Math.random() * 11);
       // console.log(value);
@@ -38,24 +38,19 @@ const Cart = ({count, setCount, cartProducts, DeleteCart, AddtoCart, setcartProd
         return;
       }
       if (cartlength - 1 < value) {
-        continue;
+        continue; //if random value is bigger than cartlength then again generator 
       } else {
         break;
       }
     }
-    // const entries = Object.entries(cart[value]);
-    // const entries = Object.entries(cart[value]);
+
     cart2 = [...cart2, cart[value]];
 
-    // console.log("final", value, cart2, typeof cart2);
+ 
 
     setcartProducts(cart2);
   };
 
-  // const setone =(data) =>{
-
-  //   // setcartProducts(data)
-  // }
 
   return (
     <>
@@ -132,7 +127,7 @@ const Cart = ({count, setCount, cartProducts, DeleteCart, AddtoCart, setcartProd
             type="button"
             onClick={UndoFromdb}
           >
-            Undo From db
+            Undo
           </button>
         </div>
 
@@ -155,7 +150,7 @@ const Cart = ({count, setCount, cartProducts, DeleteCart, AddtoCart, setcartProd
             </p>
             <h5>
               Grand Total:{" "}
-              <span className="text-primary">${grandTotal.toFixed(2)}</span>
+              <span className="text-primary">${grandTotal?.toFixed(2)}</span>
             </h5>
           </div>
         </section>
