@@ -4,6 +4,7 @@ import Shop from "./components/shop/Shop";
 import { useEffect, useState } from "react";
 import Header from "./components/header/Header";
 import Cart from "./components/cart/Cart";
+import QNA from "./components/QNA/QNA";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -125,6 +126,7 @@ function App() {
         AddtoCart={AddtoCart}
         setcartProducts={setcartProducts}
       />
+      <QNA />
     </div>
   );
 }
