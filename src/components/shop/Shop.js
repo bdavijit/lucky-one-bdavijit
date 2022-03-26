@@ -1,7 +1,7 @@
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+
 import "./Shop.css";
+import Productcard from "../productcard/Productcard";
 
 const Shop = ({products , AddtoCart}) => {
 
@@ -9,39 +9,16 @@ const Shop = ({products , AddtoCart}) => {
     <>
 
       <section id="Items">
-        {products.map((product) => {
-          return (
-            <>
-              <div className="MyCard">
-                <div className="image_height">
-                  <img
-                    src={product?.image}
-                    className="my-img-fluid"
-                    alt={product?.name}
-                  />
-                </div>
-                <div className="card-body">
-                  <h5 className="card-title text-center">{product?.name}</h5>
-                  <p className="card-text text-center fw-bold text-primary">
-                    {product?.price}
-                  </p>
 
-                  <div className="d-grid gap-2">
-                    <button 
-                    className="btn text-white"
-                     type="button"
-                     style={{ background: "#120E43" }}
-                     onClick={() => AddtoCart(product)}
-                      >
-                      <FontAwesomeIcon icon={faShoppingCart}></FontAwesomeIcon> Add to cart
-                    </button>
-                  </div>
+{
+      products.map(product=><Productcard 
+                        key={product.id}
+                        product={product}
+                        AddtoCart={AddtoCart}
+                        ></Productcard>)
+}
 
-                </div>
-              </div>
-            </>
-          );
-        })}
+     
       </section>
     </>
   );
@@ -49,7 +26,3 @@ const Shop = ({products , AddtoCart}) => {
 
 export default Shop;
 
-// console.log(product.name);
-// console.log(product.id);
-// console.log(product.price);
-// console.log(product.image);

@@ -13,6 +13,8 @@ const Header = ({count}) => {
     };
   };
 
+
+
   return (
     <>
       <header className="header" id="header">
@@ -22,9 +24,7 @@ const Header = ({count}) => {
 
         <nav className="navbar">
           <a href="#ProductBox">home</a>
-          <a href="#ProductBox">services</a>
-          <a href="#ProductBox">about us</a>
-          <a href="#ProductBox">contact</a>
+          <a href="#commingSoon">services</a>
           <a href="#CardBox" style={{ background: "#120E43" }}>
             <button
               type="button"
