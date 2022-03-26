@@ -1,7 +1,10 @@
+// import { Alert } from "bootstrap";
 import React from "react";
 import "./Cart.css";
+// import { StorData} from '../../App';
 
 const Cart = (props) => {
+  // console.log(props);
   let total = 0;
   let shipping = 0;
   let quantity = 0;
@@ -13,6 +16,46 @@ const Cart = (props) => {
   const tax = parseFloat((total * 0.1).toFixed(2));
   const grandTotal = total + shipping + tax;
 
+  function UndoFromdb() {
+    window.location.reload(false);
+    const element = document.getElementById("CardBox");
+    element.scrollIntoView();
+  }
+
+  const ChooseOne = () => {
+    let cartlength = props.cartProducts.length;
+    let cart2 = [];
+    let cart = props.cartProducts.map((product) => product);
+    let value;
+    alert(cartlength);
+
+    for (;;) {
+      value = Math.floor(Math.random() * 11);
+      // console.log(value);
+
+      if(cartlength < 1){
+        return;
+      }
+      if (cartlength - 1 < value) {
+        continue;
+      } else {
+        break;
+      }
+    }
+    // const entries = Object.entries(cart[value]);
+    // const entries = Object.entries(cart[value]);
+    cart2 = [...cart2, cart[value]];
+
+    // console.log("final", value, cart2, typeof cart2);
+
+    props.setcartProducts(cart2);
+  };
+
+  // const setone =(data) =>{
+
+  //   // props.setcartProducts(data)
+  // }
+
   return (
     <>
       <section id="Cart_Box">
@@ -22,19 +65,19 @@ const Cart = (props) => {
               <div className="cartItem">
                 <div className="image_height2">
                   <img
-                    src={element.image}
+                    src={element?.image}
                     className="my-img-fluid2"
-                    alt={element.name}
+                    alt={element?.name}
                   />
                 </div>
                 <div className="card-body">
                   <h3 className="card-title text-center text-adjust">
-                    {element.name}
+                    {element?.name}
                   </h3>
-                  <p className="card-text text-center">price:{element.price}</p>
+                  <p className="card-text text-center">price:{element?.price}</p>
                 </div>
                 <div>
-                  <div>Quintity:{element.quantity}</div>
+                  <div>Quintity:{element?.quantity}</div>
                   <button
                     type="button"
                     className="btn btn-outline-dark m-1"
@@ -51,7 +94,9 @@ const Cart = (props) => {
                   </button>
                 </div>
                 <div>
-                  <p className="card-text text-center">{element.price * element.quantity}</p>
+                  <p className="card-text text-center">
+                    {element?.price * element?.quantity}
+                  </p>
                   <button
                     type="button"
                     className="btn btn-danger"
@@ -64,6 +109,31 @@ const Cart = (props) => {
             </>
           );
         })}
+
+        <div className="d-grid gap-2 col-6 mx-auto">
+          <button
+            className="btn text-white"
+            style={{ background: "#120E43" }}
+            type="button"
+            onClick={ChooseOne}
+          >
+            Choose One
+          </button>
+          <button
+            className="btn text-white bg-danger"
+            type="button"
+            onClick={() => props.setcartProducts([])}
+          >
+            Delete All
+          </button>
+          <button
+            className="btn text-white btn-success"
+            type="button"
+            onClick={UndoFromdb}
+          >
+            Undo From db
+          </button>
+        </div>
 
         <section id="Total_Box">
           {props.setCount(quantity)}

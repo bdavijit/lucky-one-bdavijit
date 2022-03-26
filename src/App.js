@@ -61,10 +61,15 @@ function App() {
     localStorage.setItem("cart", JSON.stringify(cartData));
   };
 
+
+
   const DeleteCart = ({ id }) => {
     const rest = cartProducts.filter((product) => product.id !== id);
     setcartProducts(rest);
   };
+
+
+
 
   const AddtoCart = (AddProduct, btnIdentity = "plus") => {
     let newCart = [];
@@ -121,6 +126,9 @@ function App() {
         cartProducts={cartProducts}
         DeleteCart={DeleteCart}
         AddtoCart={AddtoCart}
+        setcartProducts ={setcartProducts}
+
+
       />
     </div>
   );
